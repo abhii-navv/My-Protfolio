@@ -86,7 +86,7 @@ function HomePage({ onNav }) {
         <div className="home-oval">
           <img src="assets/images/profile.jpeg" alt="Pasumarthy Abhinav" />
         </div>
-        <button className="home-worktag" onClick={() => onNav('contact')}>↳ &nbsp; Work with me today</button>
+        <button className="home-worktag" onClick={() => onNav('projects')}>↳ &nbsp; See my Work</button>
       </div>
     </div>
   );
@@ -134,9 +134,9 @@ function AboutPage() {
             ]},
             { label: 'Creative', skills: [
               { name: 'Lightroom',  icon: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg' },
+              { name: 'Photoshop',  icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg' },
               { name: 'Photography',icon: null, emoji: '📷' },
               { name: 'Videography',icon: null, emoji: '🎬' },
-              { name: 'Snapseed',   icon: null, emoji: '✨' },
             ]},
           ].map(g => (
             <div key={g.label} className="skill-group-row">
@@ -401,7 +401,7 @@ function PhotographyPage() {
       </div>
       <div className="drive-bar">
         <p>These are just a few favourites. Explore my complete gallery — wildlife, college events, and more — on Google Drive.</p>
-        <a className="drive-btn" href="#" target="_blank" rel="noreferrer"><DriveIcon /> Explore Full Gallery</a>
+        <a className="drive-btn" href="https://drive.google.com/drive/folders/1zMKn07x8b_krINH8TdqWUSSPiz75TIPP?usp=sharing" target="_blank" rel="noreferrer"><DriveIcon /> Explore Full Gallery</a>
       </div>
     </div>
   );
