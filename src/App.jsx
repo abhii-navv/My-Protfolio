@@ -46,6 +46,9 @@ const LocationIcon = () => (
 const DownloadIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zm-8 2V5h2v6h1.17L12 13.17 9.83 11H11zm-6 7h14v2H5v-2z"/></svg>
 );
+const SendIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+);
 const ExternalIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
 );
@@ -65,7 +68,7 @@ const DriveIcon = () => (
 function HomePage({ onNav }) {
   return (
     <div className="page-home">
-      {/* <img src="assets/images/logo.png" alt="Abhii" className="home-logo" /> */}
+      <img src="assets/images/logo.png" alt="Abhii" className="home-logo" />
       <div className="home-left">
         <div>
           <p className="home-eyebrow">Pasumarthy</p>
@@ -83,7 +86,7 @@ function HomePage({ onNav }) {
         <div className="home-oval">
           <img src="assets/images/profile.jpeg" alt="Pasumarthy Abhinav" />
         </div>
-        <button className="home-worktag" onClick={() => onNav('contact')}>↳ &nbsp; Work with me today</button>
+        <button className="home-worktag" onClick={() => onNav('projects')}>↳ &nbsp; See my work</button>
       </div>
     </div>
   );
@@ -127,13 +130,13 @@ function AboutPage() {
               { name: 'Git',        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
               { name: 'Linux',      icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
               { name: 'ROS2',       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ros/ros-original.svg' },
-              { name: 'Jetson',     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nvidia/nvidia-original.svg' },
+              { name: 'Jetson',     icon: null, emoji: '🖥️' },
             ]},
             { label: 'Creative', skills: [
-              { name: 'Lightroom',  icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg' },
+              { name: 'Lightroom',  icon: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg' },
+              {name:'Photoshop',icon:'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg'},
               { name: 'Photography',icon: null, emoji: '📷' },
               { name: 'Videography',icon: null, emoji: '🎬' },
-              { name: 'Snapseed',   icon: null, emoji: '✨' },
             ]},
           ].map(g => (
             <div key={g.label} className="skill-group-row">
@@ -185,7 +188,7 @@ function ResumePage({ onOpenResume }) {
             </div>
           </div>
           <div className="r-block">
-            <h3>Activities</h3>
+            <h3>Clubs & Activities</h3>
             <div className="tl">
               <div className="tl-item"><div className="tl-dot" /><div className="tl-body">
                 <h4>Team Media — Multimedia Club</h4>
@@ -375,6 +378,10 @@ function PhotographyPage() {
         <p>Over time, I developed a strong interest in wildlife photography. Capturing animals in their natural surroundings taught me patience, timing, and observation, making photography more meaningful to me.</p>
         <p>For me, photography is about capturing real moments and telling stories through simple, authentic frames.</p>
       </div>
+      <div className="dome-intro">
+        <span className="dome-intro-icon">🌐</span>
+        A collection of my photography work presented in an immersive 3D dome experience. Drag to explore and click on images to view.
+      </div>
       <div className="dome-wrap">
       <DomeGallery
   images={PHOTO_IMAGES}
@@ -394,13 +401,32 @@ function PhotographyPage() {
       </div>
       <div className="drive-bar">
         <p>These are just a few favourites. Explore my complete gallery — wildlife, college events, and more — on Google Drive.</p>
-        <a className="drive-btn" href="#" target="_blank" rel="noreferrer"><DriveIcon /> Explore Full Gallery</a>
+        <a className="drive-btn" href="https://drive.google.com/drive/folders/1zMKn07x8b_krINH8TdqWUSSPiz75TIPP?usp=sharing" target="_blank" rel="noreferrer"><DriveIcon /> Explore Full Gallery</a>
       </div>
     </div>
   );
 }
 
 function ContactPage() {
+  const [form, setForm] = React.useState({ name: '', email: '', subject: '', message: '' });
+  const [status, setStatus] = React.useState('idle'); // idle | sending | sent | error
+
+  const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
+
+  const handleSubmit = async () => {
+    if (!form.name || !form.email || !form.message) return;
+    setStatus('sending');
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/pasumarthyabhinav955@gmail.com`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ ...form, _captcha: 'false' }),
+      });
+      if (res.ok) { setStatus('sent'); setForm({ name: '', email: '', subject: '', message: '' }); }
+      else setStatus('error');
+    } catch { setStatus('error'); }
+  };
+
   return (
     <div className="page-inner">
       <p className="pg-label">Get In Touch</p>
@@ -412,17 +438,43 @@ function ContactPage() {
           <a className="cdetail" href="mailto:pasumarthyabhinav955@gmail.com"><EmailIcon /> pasumarthyabhinav955@gmail.com</a>
           <a className="cdetail" href="tel:+917842426027"><PhoneIcon /> +91 78424 26027</a>
           <div className="cdetail"><LocationIcon /> Coimbatore, Tamil Nadu, India</div>
+          <div className="soc-cards">
+            <a className="soc-card" href="https://www.linkedin.com/in/pasumarthy-abhinav-8695ba34a" target="_blank" rel="noreferrer">
+              <LinkedInIcon /><div><span className="soc-lbl">LinkedIn</span><span className="soc-val">Pasumarthy Abhinav</span></div>
+            </a>
+            <a className="soc-card" href="https://github.com/abhii-navv" target="_blank" rel="noreferrer">
+              <GitHubIcon /><div><span className="soc-lbl">GitHub</span><span className="soc-val">abhii-navv</span></div>
+            </a>
+            <a className="soc-card" href="https://leetcode.com/u/abhii-navv/" target="_blank" rel="noreferrer">
+              <LeetCodeIcon /><div><span className="soc-lbl">LeetCode</span><span className="soc-val">abhii-navv</span></div>
+            </a>
+          </div>
         </div>
-        <div className="soc-cards">
-          <a className="soc-card" href="https://www.linkedin.com/in/pasumarthy-abhinav-8695ba34a" target="_blank" rel="noreferrer">
-            <LinkedInIcon /><div><span className="soc-lbl">LinkedIn</span><span className="soc-val">Pasumarthy Abhinav</span></div>
-          </a>
-          <a className="soc-card" href="https://github.com/abhii-navv" target="_blank" rel="noreferrer">
-            <GitHubIcon /><div><span className="soc-lbl">GitHub</span><span className="soc-val">abhii-navv</span></div>
-          </a>
-          <a className="soc-card" href="https://leetcode.com/u/abhii-navv/" target="_blank" rel="noreferrer">
-            <LeetCodeIcon /><div><span className="soc-lbl">LeetCode</span><span className="soc-val">abhii-navv</span></div>
-          </a>
+        <div className="contact-form">
+          <h3 className="form-title">Send a Message</h3>
+          <div className="form-row">
+            <div className="form-group">
+              <label className="form-label">Name</label>
+              <input className="form-input" name="name" value={form.name} onChange={handleChange} placeholder="Your name" />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Email</label>
+              <input className="form-input" name="email" type="email" value={form.email} onChange={handleChange} placeholder="your@email.com" />
+            </div>
+          </div>
+          <div className="form-group">
+            <label className="form-label">Subject</label>
+            <input className="form-input" name="subject" value={form.subject} onChange={handleChange} placeholder="What's this about?" />
+          </div>
+          <div className="form-group">
+            <label className="form-label">Message</label>
+            <textarea className="form-input form-textarea" name="message" value={form.message} onChange={handleChange} placeholder="Write your message here..." rows={5} />
+          </div>
+          {status === 'sent' && <p className="form-success">✓ Message sent! I'll get back to you soon.</p>}
+          {status === 'error' && <p className="form-error">Something went wrong. Please try emailing directly.</p>}
+          <button className="form-submit" onClick={handleSubmit} disabled={status === 'sending'}>
+            {status === 'sending' ? 'Sending...' : <><SendIcon /> Send Message</>}
+          </button>
         </div>
       </div>
     </div>
@@ -433,21 +485,24 @@ function ContactPage() {
 function Sidebar({ onNav, onOpenResume }) {
   return (
     <aside>
-      <div className="side-photo">
-        <img src="assets/images/profile.jpeg" alt="Pasumarthy Abhinav" />
+      <img src="assets/images/logo.png" alt="Abhii" className="side-logo" />
+      <div className="side-center">
+        <div className="side-photo">
+          <img src="assets/images/profile.jpeg" alt="Pasumarthy Abhinav" />
+        </div>
+        <div>
+          <div className="side-name">Pasumarthy Abhinav</div>
+        </div>
+        <div className="side-role">Full Stack Dev · Photographer</div>
+        <div className="side-divider" />
+        <div className="side-contacts">
+          <a className="side-contact" href="mailto:pasumarthyabhinav955@gmail.com"><EmailIcon /> pasumarthyabhinav955@gmail.com</a>
+          <a className="side-contact" href="tel:+917842426027"><PhoneIcon /> +91 78424 26027</a>
+          <div className="side-contact"><LocationIcon /> Coimbatore, India</div>
+        </div>
+        <div className="side-divider" />
+        <button className="side-dl" onClick={onOpenResume}><DownloadIcon /> Download Resume</button>
       </div>
-      <div>
-        <div className="side-name">Pasumarthy Abhinav</div>
-      </div>
-      <div className="side-role">Full Stack Dev · Photographer</div>
-      <div className="side-divider" />
-      <div className="side-contacts">
-        <a className="side-contact" href="mailto:pasumarthyabhinav955@gmail.com"><EmailIcon /> pasumarthyabhinav955@gmail.com</a>
-        <a className="side-contact" href="tel:+917842426027"><PhoneIcon /> +91 78424 26027</a>
-        <div className="side-contact"><LocationIcon /> Coimbatore, India</div>
-      </div>
-      <div className="side-divider" />
-      <button className="side-dl" onClick={onOpenResume}><DownloadIcon /> Download Resume</button>
     </aside>
   );
 }
@@ -456,11 +511,26 @@ function Sidebar({ onNav, onOpenResume }) {
 export default function App() {
   const [page, setPage] = useState('home');
   const [resumeOpen, setResumeOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [transitioning, setTransitioning] = useState(false);
+  const [displayPage, setDisplayPage] = useState('home');
+
+  // Loading screen — hide after 2.2s
+  React.useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 2200);
+    return () => clearTimeout(t);
+  }, []);
 
   const goTo = useCallback((id) => {
-    setPage(id);
-    window.scrollTo({ top: 0 });
-  }, []);
+    if (id === displayPage) return;
+    setTransitioning(true);
+    setTimeout(() => {
+      setPage(id);
+      setDisplayPage(id);
+      window.scrollTo({ top: 0 });
+      setTransitioning(false);
+    }, 320);
+  }, [displayPage]);
 
   const menuCloseRef = React.useRef(null);
 
@@ -472,10 +542,10 @@ export default function App() {
       e.preventDefault();
       const label = link.querySelector('.sm-panel-itemLabel')?.textContent?.toLowerCase();
       if (label && PAGES.includes(label)) {
-        goTo(label);
-        // Trigger menu close by simulating toggle button click
+        // Close menu first, then navigate after animation completes
         const toggleBtn = document.querySelector('.sm-toggle');
         if (toggleBtn) toggleBtn.click();
+        setTimeout(() => goTo(label), 350);
       }
     };
     document.addEventListener('click', handler);
@@ -495,6 +565,17 @@ export default function App() {
 
   return (
     <>
+      {/* LOADING SCREEN */}
+      {loading && (
+        <div className="loader-overlay">
+          <div className="loader-content">
+            <img src="assets/images/logo.png" alt="Abhii" className="loader-logo" />
+            <div className="loader-bar"><div className="loader-fill" /></div>
+            <p className="loader-text">Loading Portfolio...</p>
+          </div>
+        </div>
+      )}
+
       {/* STAGGERED MENU */}
       <StaggeredMenu
         isFixed
@@ -528,7 +609,7 @@ export default function App() {
       <div className={`shell${isHome?' shell--home':''}`}>
         {!isHome && <Sidebar onNav={goTo} onOpenResume={() => setResumeOpen(true)} />}
         <main className={`main-content${isHome?' main-home':''}`}>
-          <div className={`page-wrap${page==='home'?' page-home-wrap':''}`}>
+          <div className={`page-wrap${page==='home'?' page-home-wrap':''}${transitioning?' page-exit':' page-enter'}`}>
             {page === 'home'       && <HomePage onNav={goTo} />}
             {page === 'about'      && <AboutPage />}
             {page === 'resume'     && <ResumePage onOpenResume={() => setResumeOpen(true)} />}
