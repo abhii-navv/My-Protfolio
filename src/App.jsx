@@ -86,7 +86,7 @@ function HomePage({ onNav }) {
         <div className="home-oval">
           <img src="assets/images/profile.jpeg" alt="Pasumarthy Abhinav" />
         </div>
-        <button className="home-worktag" onClick={() => onNav('projects')}>↳ &nbsp; See my work</button>
+        <button className="home-worktag" onClick={() => onNav('contact')}>↳ &nbsp; Work with me today</button>
       </div>
     </div>
   );
@@ -134,9 +134,9 @@ function AboutPage() {
             ]},
             { label: 'Creative', skills: [
               { name: 'Lightroom',  icon: 'https://upload.wikimedia.org/wikipedia/commons/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg' },
-              {name:'Photoshop',icon:'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg'},
               { name: 'Photography',icon: null, emoji: '📷' },
               { name: 'Videography',icon: null, emoji: '🎬' },
+              { name: 'Snapseed',   icon: null, emoji: '✨' },
             ]},
           ].map(g => (
             <div key={g.label} className="skill-group-row">
@@ -188,7 +188,7 @@ function ResumePage({ onOpenResume }) {
             </div>
           </div>
           <div className="r-block">
-            <h3>Clubs & Activities</h3>
+            <h3>Activities</h3>
             <div className="tl">
               <div className="tl-item"><div className="tl-dot" /><div className="tl-body">
                 <h4>Team Media — Multimedia Club</h4>
@@ -401,7 +401,7 @@ function PhotographyPage() {
       </div>
       <div className="drive-bar">
         <p>These are just a few favourites. Explore my complete gallery — wildlife, college events, and more — on Google Drive.</p>
-        <a className="drive-btn" href="https://drive.google.com/drive/folders/1zMKn07x8b_krINH8TdqWUSSPiz75TIPP?usp=sharing" target="_blank" rel="noreferrer"><DriveIcon /> Explore Full Gallery</a>
+        <a className="drive-btn" href="#" target="_blank" rel="noreferrer"><DriveIcon /> Explore Full Gallery</a>
       </div>
     </div>
   );
@@ -561,6 +561,7 @@ export default function App() {
     return () => document.removeEventListener('click', handler);
   }, [goTo]);
 
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
   const isHome = page === 'home';
 
   return (
@@ -608,6 +609,38 @@ export default function App() {
       {/* SHELL */}
       <div className={`shell${isHome?' shell--home':''}`}>
         {!isHome && <Sidebar onNav={goTo} onOpenResume={() => setResumeOpen(true)} />}
+
+        {/* MOBILE PROFILE TRIGGER — only on non-home pages */}
+        {!isHome && (
+          <button className="mob-profile-btn" onClick={() => setDrawerOpen(true)} aria-label="Open profile">
+            <img src="assets/images/profile.jpeg" alt="Profile" />
+          </button>
+        )}
+
+        {/* MOBILE SIDEBAR DRAWER */}
+        {!isHome && (
+          <>
+            <div className={`mob-drawer-overlay${drawerOpen ? ' open' : ''}`} onClick={() => setDrawerOpen(false)} />
+            <div className={`mob-drawer${drawerOpen ? ' open' : ''}`}>
+              <button className="mob-drawer-close" onClick={() => setDrawerOpen(false)}>✕</button>
+              <img src="assets/images/logo.png" alt="Abhii" className="side-logo" style={{alignSelf:'flex-start'}} />
+              <div className="side-center">
+                <div className="side-photo"><img src="assets/images/profile.jpeg" alt="Pasumarthy Abhinav" /></div>
+                <div className="side-name">Pasumarthy Abhinav</div>
+                <div className="side-role">Full Stack Dev · Photographer</div>
+                <div className="side-divider" />
+                <div className="side-contacts">
+                  <a className="side-contact" href="mailto:pasumarthyabhinav955@gmail.com"><EmailIcon /> pasumarthyabhinav955@gmail.com</a>
+                  <a className="side-contact" href="tel:+917842426027"><PhoneIcon /> +91 78424 26027</a>
+                  <div className="side-contact"><LocationIcon /> Coimbatore, India</div>
+                </div>
+                <div className="side-divider" />
+                <button className="side-dl" onClick={() => { setResumeOpen(true); setDrawerOpen(false); }}><DownloadIcon /> Download Resume</button>
+              </div>
+            </div>
+          </>
+        )}
+
         <main className={`main-content${isHome?' main-home':''}`}>
           <div className={`page-wrap${page==='home'?' page-home-wrap':''}${transitioning?' page-exit':' page-enter'}`}>
             {page === 'home'       && <HomePage onNav={goTo} />}
