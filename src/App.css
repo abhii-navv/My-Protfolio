@@ -469,6 +469,60 @@ aside::-webkit-scrollbar-thumb { background: var(--brown-dark); }
 ::-webkit-scrollbar-track { background: var(--black); }
 ::-webkit-scrollbar-thumb { background: var(--brown-dark); border-radius: 3px; }
 
+/* ─── MOBILE SIDEBAR DRAWER ─── */
+.mob-profile-btn {
+  display: none;
+  position: fixed; bottom: 1.2rem; left: 1.2rem; z-index: 250;
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 2px solid rgba(139,111,71,.5);
+  overflow: hidden; cursor: pointer; padding: 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,.5);
+  transition: border-color .25s, transform .2s;
+}
+.mob-profile-btn:hover { border-color: var(--brown-light); transform: scale(1.05); }
+.mob-profile-btn img { width: 100%; height: 100%; object-fit: cover; }
+
+.mob-drawer-overlay {
+  display: none;
+  position: fixed; inset: 0; z-index: 260;
+  background: rgba(0,0,0,.6); backdrop-filter: blur(4px);
+  opacity: 0; transition: opacity .3s;
+  pointer-events: none;
+}
+.mob-drawer-overlay.open { opacity: 1; pointer-events: auto; }
+
+.mob-drawer {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 270;
+  background: #1a1510;
+  border-top: 1px solid rgba(139,111,71,.25);
+  border-radius: 20px 20px 0 0;
+  padding: 1.5rem 1.8rem 2.5rem;
+  flex-direction: column; align-items: center;
+  max-height: 85vh; overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform .35s cubic-bezier(.32,.72,0,1);
+  box-shadow: 0 -8px 40px rgba(0,0,0,.6);
+}
+.mob-drawer.open { transform: translateY(0); }
+
+.mob-drawer-close {
+  position: absolute; top: 1rem; right: 1.2rem;
+  background: rgba(139,111,71,.15); border: 1px solid rgba(139,111,71,.3);
+  color: var(--muted); border-radius: 50%;
+  width: 32px; height: 32px; font-size: .85rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background .2s, color .2s;
+}
+.mob-drawer-close:hover { background: rgba(139,111,71,.3); color: var(--text); }
+
+/* Show on mobile */
+@media (max-width: 900px) {
+  .mob-profile-btn { display: flex; align-items: center; justify-content: center; }
+  .mob-drawer-overlay { display: block; }
+  .mob-drawer { display: flex; }
+}
+
 /* ─── MOBILE MENU FIX ─── */
 @media (max-width: 768px) {
   .portfolio-menu .staggered-menu-panel,
