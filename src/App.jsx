@@ -247,7 +247,7 @@ const PROJECTS = {
       {
   title: 'Subscription Cost Tracker',
   cats: ['webdev', 'frontend'],
-  desc: 'A clean, responsive React web app for tracking subscriptions and monitoring monthly and yearly expenses in real time. Features smart service detection, expense insights, localStorage persistence, and a mobile-friendly interface.',
+  desc: 'A clean, responsive React web app for tracking subscriptions and monitoring monthly and yearly expenses in real time. Features smart service detection, expense insights, localStorage persistence, and a mobile-friendly interface. Built for Digital Heroes',
   tags: ['React', 'Vite', 'JavaScript', 'CSS', 'localStorage'],
   links: [
     { label: 'GitHub', href: 'https://github.com/abhii-navv/subscription-tracker' },
