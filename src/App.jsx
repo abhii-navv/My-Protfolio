@@ -244,6 +244,17 @@ function ResumePage({ onOpenResume }) {
 
 const PROJECTS = {
   webdev: [
+      {
+  title: 'Subscription Cost Tracker',
+  cats: ['webdev', 'frontend'],
+  desc: 'A clean, responsive React web app for tracking subscriptions and monitoring monthly and yearly expenses in real time. Features smart service detection, expense insights, localStorage persistence, and a mobile-friendly interface.',
+  tags: ['React', 'Vite', 'JavaScript', 'CSS', 'localStorage'],
+  links: [
+    { label: 'GitHub', href: 'https://github.com/abhii-navv/subscription-tracker' },
+    { label: 'Live Demo', href: 'https://subscription-tracker-omega-sable.vercel.app/' }
+  ],
+  date: 'June 2026'
+},
     {
       title:'AI Wildlife Photo Analyzer', cats:['webdev','backend'],
       desc:'AI-based web application using Python and Flask for wildlife image analysis and editing recommendations. Uses OpenCV and NumPy to evaluate brightness, blur, and image quality — then generates automated suggestions for Adobe Lightroom and Snapseed.',
