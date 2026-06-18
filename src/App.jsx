@@ -288,16 +288,6 @@ const PROJECTS = {
       date:'Sep–Nov 2025',
     },
   ],
-  research: [
-    {
-      title:'LiDAR Adverse Weather Perception System', cats:['research','embedded'],
-      desc:'Research-grade portable LiDAR system for vehicle safety in fog, rain, and dust. Multi-stage denoising pipeline (voxel-grid, SOR, RANSAC) deployed on NVIDIA Jetson Orin Nano using ROS2 — achieving 91.7% detection accuracy with <100 ms latency.',
-      tags:['Python','ROS2','LiDAR','Embedded Systems','NVIDIA Jetson'],
-      links:[],
-      badge:'📄 Published Research',
-      date:null,
-    },
-  ],
   java: [
     {
       title:'Uber Ride-Sharing Simulation', cats:['java'],
