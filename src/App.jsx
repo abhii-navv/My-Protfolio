@@ -335,7 +335,7 @@ function ProjectCard({ p }) {
 
 function ProjectsPage() {
   const [filter, setFilter] = useState('all');
-  const catKeys = ['webdev','backend','embedded','research','java'];
+  const catKeys = ['webdev','backend','embedded','java'];
 
   return (
     <div className="page-inner">
