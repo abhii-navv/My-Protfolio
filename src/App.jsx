@@ -304,7 +304,6 @@ const CATEGORIES = [
   { key:'webdev', label:'Web Dev' },
   { key:'backend', label:'Backend' },
   { key:'embedded', label:'Embedded / Robotics' },
-  { key:'research', label:'Research' },
   { key:'java', label:'Java / OOP' },
 ];
 
@@ -312,7 +311,6 @@ const CAT_HEADINGS = {
   webdev: '🌐 Web Development',
   backend: '⚙️ Backend & API',
   embedded: '🤖 Embedded Systems & Robotics',
-  research: '🔬 Research',
   java: '☕ Java / OOP',
 };
 
