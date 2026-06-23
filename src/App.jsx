@@ -99,7 +99,7 @@ function HomePage({ onNav }) {
 
         {/* Scroll-down indicator */}
         <button className="home-scroll-down" onClick={scrollToAbout} aria-label="Scroll to About">
-          <span className="home-scroll-label">About</span>
+          <span className="home-scroll-label"></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
           </svg>
