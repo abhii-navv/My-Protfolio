@@ -138,8 +138,8 @@ function HomePage({ onNav }) {
               <div><div className="hac-title">Full Stack Developer</div><div className="hac-sub">Node · React · PostgreSQL</div></div>
             </div>
             <div className="hac-row">
-              <span className="hac-icon">🤖</span>
-              <div><div className="hac-title">Embedded & AI Research</div><div className="hac-sub">ROS2 · LiDAR · Jetson</div></div>
+              <span className="hac-icon">🎓</span>
+              <div><div className="hac-title">CSE Undergraduate </div><div className="hac-sub">Amrita Vishwa Vidyapeetham </div></div>
             </div>
             <div className="hac-row">
               <span className="hac-icon">📷</span>
@@ -149,7 +149,7 @@ function HomePage({ onNav }) {
             <div className="hac-stat-row">
               <div className="hac-stat"><span className="hac-stat-num">5+</span><span className="hac-stat-lbl">Projects</span></div>
               <div className="hac-stat"><span className="hac-stat-num">1</span><span className="hac-stat-lbl">Research Paper</span></div>
-              <div className="hac-stat"><span className="hac-stat-num">15+</span><span className="hac-stat-lbl">Photos</span></div>
+              <div className="hac-stat"><span className="hac-stat-num">3+</span><span className="hac-stat-lbl">Deployments</span></div>
             </div>
           </div>
         </div>
@@ -739,4 +739,3 @@ export default function App() {
     </>
   );
 }
-
