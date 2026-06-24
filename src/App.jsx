@@ -649,10 +649,23 @@ export default function App() {
     return () => document.removeEventListener('click', handler);
   }, [goTo]);
 
-  // Logo click — navigate home
+  // Logo click — spin animation + navigate home
   React.useEffect(() => {
     const handler = (e) => {
-      if (e.target.closest('.sm-logo')) { e.preventDefault(); goTo('home'); }
+      if (e.target.closest('.sm-logo')) {
+        e.preventDefault();
+        // Spin the logo image
+        const img = document.querySelector('.sm-logo .sm-logo-img');
+        if (img) {
+          img.classList.remove('sm-logo-img--spinning');
+          void img.offsetWidth; // force reflow to restart animation
+          img.classList.add('sm-logo-img--spinning');
+          img.addEventListener('animationend', () => {
+            img.classList.remove('sm-logo-img--spinning');
+          }, { once: true });
+        }
+        goTo('home');
+      }
     };
     document.addEventListener('click', handler);
     return () => document.removeEventListener('click', handler);
@@ -752,7 +765,8 @@ export default function App() {
 
       {/* RESUME MODAL */}
       {resumeOpen && (
-        <div className="modal" onClick={e => e.target === e.currentTarget && setResumeOpen(false)}>
+        <div className="modal" onClick={e => e.target === e.currentTarget && setResumeOpen(fal
+                                                                                           se)}>
           <div className="modal-content">
             <button className="modal-close" onClick={() => setResumeOpen(false)}>×</button>
             <iframe src="assets/files/resume.pdf" title="Resume" style={{ flex: 1, width: '100%', border: 'none', borderRadius: 16, minHeight: '70vh' }} />
