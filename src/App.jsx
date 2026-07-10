@@ -85,7 +85,7 @@ function HomePage({ onNav }) {
           <div className="home-role-pill">Full Stack Developer &nbsp;/&nbsp; Photographer</div>
         </div>
         <div className="home-socials">
-          <a href="https://www.linkedin.com/in/pasumarthy-abhinav-8695ba34a" className="home-icon-btn" target="_blank" rel="noreferrer" title="LinkedIn"><LinkedInIcon /></a>
+          <a href="https://www.linkedin.com/in/pasumarthy-abhinav/" className="home-icon-btn" target="_blank" rel="noreferrer" title="LinkedIn"><LinkedInIcon /></a>
           <a href="https://github.com/abhii-navv" className="home-icon-btn" target="_blank" rel="noreferrer" title="GitHub"><GitHubIcon /></a>
           <a href="https://leetcode.com/u/abhii-navv/" className="home-icon-btn" target="_blank" rel="noreferrer" title="LeetCode"><LeetCodeIcon /></a>
           <a href="mailto:pasumarthyabhinav955@gmail.com" className="home-icon-btn" title="Email"><EmailIcon /></a>
@@ -536,7 +536,7 @@ function ContactPage() {
           <a className="cdetail" href="tel:+917842426027"><PhoneIcon /> +91 78424 26027</a>
           <div className="cdetail"><LocationIcon /> Coimbatore, Tamil Nadu, India</div>
           <div className="soc-cards">
-            <a className="soc-card" href="https://www.linkedin.com/in/pasumarthy-abhinav-8695ba34a" target="_blank" rel="noreferrer">
+            <a className="soc-card" href="https://www.linkedin.com/in/pasumarthy-abhinav/" target="_blank" rel="noreferrer">
               <LinkedInIcon /><div><span className="soc-lbl">LinkedIn</span><span className="soc-val">Pasumarthy Abhinav</span></div>
             </a>
             <a className="soc-card" href="https://github.com/abhii-navv" target="_blank" rel="noreferrer">
@@ -691,7 +691,7 @@ export default function App() {
           _page: p,
         }))}
         socialItems={[
-          { label: 'LinkedIn', link: 'https://www.linkedin.com/in/pasumarthy-abhinav-8695ba34a' },
+          { label: 'LinkedIn', link: 'https://www.linkedin.com/in/pasumarthy-abhinav/' },
           { label: 'GitHub', link: 'https://github.com/abhii-navv' },
           { label: 'LeetCode', link: 'https://leetcode.com/u/abhii-navv/' },
         ]}
