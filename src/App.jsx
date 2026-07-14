@@ -314,7 +314,7 @@ function ResumePage({ onOpenResume }) {
               <h4>📄 Published Research Paper</h4>
               <div className="ach-title">"A Portable LiDAR-Based Adverse Weather Perception System for Four-Wheelers with Multi-Stage Denoising"</div>
               <p>Developed a portable, cost-effective LiDAR-based perception system for vehicle safety in adverse weather (rain, fog, dust). Uses a multi-stage denoising pipeline — voxel-grid downsampling, Statistical Outlier Removal (SOR), and RANSAC-based ground segmentation. Implemented on NVIDIA Jetson Orin Nano with ROS2, achieving <strong>91.7% detection accuracy</strong> and &lt;100 ms processing latency.</p>
-              <a href="#" title="Link coming soon">View Paper →</a>
+              <a href="https://ieeexplore.ieee.org/document/11590685" title="ieee">View Paper →</a>
             </div>
           </div>
           <div className="r-block">
