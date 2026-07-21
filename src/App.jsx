@@ -482,26 +482,24 @@ function PhotographyPage() {
       <p className="pg-label">Through the Lens</p>
       <h1 className="pg-title">Photography <em>Portfolio</em></h1>
       <div className="hairline" />
-
       <div className="photo-intro">
         <p>Photography came into my life gradually. I initially started taking pictures casually, but things changed when I got the opportunity to be part of my college media club team.</p>
         <p>Being in the media team helped me understand photography more seriously — learning composition, capturing moments during events, and working in real environments. That experience made me more passionate about photography and pushed me to explore it further.</p>
         <p>Over time, I developed a strong interest in wildlife photography. Capturing animals in their natural surroundings taught me patience, timing, and observation, making photography more meaningful to me.</p>
         <p>For me, photography is about capturing real moments and telling stories through simple, authentic frames.</p>
       </div>
-
       <div className="dome-intro">
         <span className="dome-intro-icon">🌐</span>
         A collection of my photography work presented in an immersive 3D dome experience. Drag to explore and click on images to view.
       </div>
-
       <div className="dome-wrap">
         <DomeGallery
           images={PHOTO_IMAGES}
           overlayBlurColor="#0c0b09"
           fit={0.7}
           minRadius={500}
-          segments={28}
+          segments={28
+          }
           dragDampening={2}
           grayscale={false}
           imageBorderRadius="14px"
@@ -510,33 +508,15 @@ function PhotographyPage() {
           openedImageHeight="420px"
         />
       </div>
-
       <div className="drive-bar">
         <p>These are just a few favourites. Explore my complete gallery — wildlife, college events, and more — on Google Drive.</p>
-        
-          className="drive-btn"
-          href="https://drive.google.com/drive/folders/1zMKn07x8b_krINH8TdqWUSSPiz75TIPP?usp=sharing"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <DriveIcon /> Explore Full Gallery
-        </a>
-      </div>
-
-      <div className="insta-bar">
-        <p>Follow along for more shots and behind-the-scenes moments on Instagram.</p>
-        
-          className="insta-btn"
-          href="https://www.instagram.com/_abhinav.04?igsh=YWkyemRpeWxqbmx3&utm_source=qr"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <InstagramIcon /> Follow on Instagram
-        </a>
+        <a className="drive-btn" href="https://drive.google.com/drive/folders/1zMKn07x8b_krINH8TdqWUSSPiz75TIPP?usp=sharing" target="_blank" rel="noreferrer"><DriveIcon /> Explore Full Gallery</a>
       </div>
     </div>
   );
 }
+
+in this part add my instagram acc like you can see my photography page
 
 function ContactPage() {
   const [form, setForm] = React.useState({ name: '', email: '', subject: '', message: '' });
