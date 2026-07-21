@@ -62,6 +62,19 @@ const DriveIcon = () => (
     <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 27h27.45c0-1.55-.4-3.1-1.2-4.5z" opacity=".4" />
   </svg>
 );
+const InstagramIcon = () => (
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" strokeWidth="2" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" strokeWidth="2" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
 
 // ── Page Components ─────────────────────────────────────────
 
@@ -460,43 +473,6 @@ function ProjectsPage() {
         );
       })}
     </div>
-  );
-}
-
-function InstagramIcon() {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect
-        x="2"
-        y="2"
-        width="20"
-        height="20"
-        rx="5"
-        ry="5"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
-      <path
-        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
-      <line
-        x1="17.5"
-        y1="6.5"
-        x2="17.51"
-        y2="6.5"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-    </svg>
   );
 }
 
