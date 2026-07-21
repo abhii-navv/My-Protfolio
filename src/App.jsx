@@ -12,7 +12,7 @@ const PHOTO_IMAGES = [
   { src: 'assets/images/img6.jpeg', alt: 'Photo 6' },
   { src: 'assets/images/img7.jpeg', alt: 'Photo 7' },
   { src: 'assets/images/img8.JPG', alt: 'Photo 8' },
-  { src: 'assets/images/img9.JPG', alt: 'Photo 9' },
+  { src: 'assets/images/img9.jpg', alt: 'Photo 9' },
   { src: 'assets/images/img10.jpeg', alt: 'Photo 10' },
   { src: 'assets/images/img11.jpg', alt: 'Photo 11' },
   { src: 'assets/images/img12.jpg', alt: 'Photo 12' },
