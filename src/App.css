@@ -1564,6 +1564,39 @@ aside::-webkit-scrollbar-thumb {
   fill: var(--brown-light);
   flex-shrink: 0;
 }
+.insta-bar {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.insta-bar p {
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+.insta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.insta-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
 
 /* Contact form */
 .contact-form {
