@@ -12,7 +12,7 @@ const PHOTO_IMAGES = [
   { src: 'assets/images/img6.jpeg', alt: 'Photo 6' },
   { src: 'assets/images/img7.jpeg', alt: 'Photo 7' },
   { src: 'assets/images/img8.JPG', alt: 'Photo 8' },
-  { src: 'assets/images/img9.jpg', alt: 'Photo 9' },
+  { src: 'assets/images/img9.JPG', alt: 'Photo 9' },
   { src: 'assets/images/img10.jpeg', alt: 'Photo 10' },
   { src: 'assets/images/img11.jpg', alt: 'Photo 11' },
   { src: 'assets/images/img12.jpg', alt: 'Photo 12' },
@@ -62,19 +62,6 @@ const DriveIcon = () => (
     <path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 27h27.45c0-1.55-.4-3.1-1.2-4.5z" opacity=".4" />
   </svg>
 );
-const InstagramIcon = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" strokeWidth="2" />
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" strokeWidth="2" />
-    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
 
 // ── Page Components ─────────────────────────────────────────
 
@@ -98,7 +85,7 @@ function HomePage({ onNav }) {
           <div className="home-role-pill">Full Stack Developer &nbsp;/&nbsp; Photographer</div>
         </div>
         <div className="home-socials">
-          <a href="https://www.linkedin.com/in/pasumarthy-abhinav/" className="home-icon-btn" target="_blank" rel="noreferrer" title="LinkedIn"><LinkedInIcon /></a>
+          <a href="https://www.linkedin.com/in/pasumarthy-abhinav-8695ba34a" className="home-icon-btn" target="_blank" rel="noreferrer" title="LinkedIn"><LinkedInIcon /></a>
           <a href="https://github.com/abhii-navv" className="home-icon-btn" target="_blank" rel="noreferrer" title="GitHub"><GitHubIcon /></a>
           <a href="https://leetcode.com/u/abhii-navv/" className="home-icon-btn" target="_blank" rel="noreferrer" title="LeetCode"><LeetCodeIcon /></a>
           <a href="mailto:pasumarthyabhinav955@gmail.com" className="home-icon-btn" title="Email"><EmailIcon /></a>
@@ -327,7 +314,7 @@ function ResumePage({ onOpenResume }) {
               <h4>📄 Published Research Paper</h4>
               <div className="ach-title">"A Portable LiDAR-Based Adverse Weather Perception System for Four-Wheelers with Multi-Stage Denoising"</div>
               <p>Developed a portable, cost-effective LiDAR-based perception system for vehicle safety in adverse weather (rain, fog, dust). Uses a multi-stage denoising pipeline — voxel-grid downsampling, Statistical Outlier Removal (SOR), and RANSAC-based ground segmentation. Implemented on NVIDIA Jetson Orin Nano with ROS2, achieving <strong>91.7% detection accuracy</strong> and &lt;100 ms processing latency.</p>
-              <a href="https://ieeexplore.ieee.org/document/11590685" title="ieee">View Paper →</a>
+              <a href="#" title="Link coming soon">View Paper →</a>
             </div>
           </div>
           <div className="r-block">
@@ -499,6 +486,7 @@ function PhotographyPage() {
           fit={0.7}
           minRadius={500}
           segments={28
+
           }
           dragDampening={2}
           grayscale={false}
@@ -515,8 +503,6 @@ function PhotographyPage() {
     </div>
   );
 }
-
-in this part add my instagram acc like you can see my photography page
 
 function ContactPage() {
   const [form, setForm] = React.useState({ name: '', email: '', subject: '', message: '' });
@@ -550,7 +536,7 @@ function ContactPage() {
           <a className="cdetail" href="tel:+917842426027"><PhoneIcon /> +91 78424 26027</a>
           <div className="cdetail"><LocationIcon /> Coimbatore, Tamil Nadu, India</div>
           <div className="soc-cards">
-            <a className="soc-card" href="https://www.linkedin.com/in/pasumarthy-abhinav/" target="_blank" rel="noreferrer">
+            <a className="soc-card" href="https://www.linkedin.com/in/pasumarthy-abhinav-8695ba34a" target="_blank" rel="noreferrer">
               <LinkedInIcon /><div><span className="soc-lbl">LinkedIn</span><span className="soc-val">Pasumarthy Abhinav</span></div>
             </a>
             <a className="soc-card" href="https://github.com/abhii-navv" target="_blank" rel="noreferrer">
@@ -705,7 +691,7 @@ export default function App() {
           _page: p,
         }))}
         socialItems={[
-          { label: 'LinkedIn', link: 'https://www.linkedin.com/in/pasumarthy-abhinav/' },
+          { label: 'LinkedIn', link: 'https://www.linkedin.com/in/pasumarthy-abhinav-8695ba34a' },
           { label: 'GitHub', link: 'https://github.com/abhii-navv' },
           { label: 'LeetCode', link: 'https://leetcode.com/u/abhii-navv/' },
         ]}
