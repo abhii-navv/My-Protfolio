@@ -372,14 +372,14 @@ const PROJECTS = {
     {
       title: 'Task Manager API', cats: ['backend', 'webdev'],
       desc: 'Full-stack Task Management application built with Node.js, Express, and PostgreSQL. Features JWT authentication, role-based access control, complete CRUD operations, a React frontend with protected routes, and Swagger API documentation.',
-      tags: ['Node.js', 'Express', 'PostgreSQL', 'JWT', 'React', 'PDFkit'],
+      tags: ['Node.js', 'Express', 'PostgreSQL', 'JWT', 'React', 'Swagger'],
       links: [{ label: 'GitHub', href: 'https://github.com/abhii-navv/primetrade' }],
       date: 'May 2026',
     },
     {
       title: 'Order Management API', cats: ['backend', 'webdev'],
       desc: 'A full-stack Inventory and Order Management system built with Node.js, Express, PostgreSQL, and React.',
-      tags: ['Node.js', 'Express', 'PostgreSQL', 'JWT', 'React', 'Swagger'],
+      tags: ['Node.js', 'Express', 'PostgreSQL', 'JWT', 'React', 'PDFkit'],
       links: [{ label: 'GitHub', href: 'https://github.com/abhii-navv/Order-Management-API' }, { label: 'Live Demo', href: 'https://order-management-api-wsir.vercel.app/' }],
       date: 'July 2026',
     },
@@ -770,4 +770,3 @@ export default function App() {
     </>
   );
 }
-
