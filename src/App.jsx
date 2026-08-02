@@ -618,6 +618,17 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [transitioning, setTransitioning] = useState(false);
   const [displayPage, setDisplayPage] = useState('home');
+  const [theme, setTheme] = useState('dark');
+
+  // Toggle theme handler
+  const toggleTheme = useCallback(() => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  }, []);
+
+  // Apply theme to document
+  React.useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   // Loading screen — hide after 2.2s
   React.useEffect(() => {
@@ -685,9 +696,9 @@ export default function App() {
       <StaggeredMenu
         isFixed
         position="right"
-        colors={['#2a1f0e', '#8B6F47']}
-        accentColor="#c9a96e"
-        menuButtonColor="#e9e9e9"
+        colors={theme === 'light' ? ['#e8dcc8', '#B8956A'] : ['#2a1f0e', '#8B6F47']}
+        accentColor={theme === 'light' ? '#8B6F47' : '#c9a96e'}
+        menuButtonColor={theme === 'light' ? '#111' : '#e9e9e9'}
         openMenuButtonColor="#111"
         changeMenuColorOnOpen
         logoUrl="assets/images/logo.png"
@@ -767,6 +778,16 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* THEME TOGGLE BUTTON */}
+      <button 
+        className="theme-toggle-btn" 
+        onClick={toggleTheme} 
+        aria-label="Toggle theme"
+        title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+      >
+        {theme === 'light' ? '🌙' : '☀️'}
+      </button>
     </>
   );
 }
