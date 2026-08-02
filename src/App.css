@@ -984,16 +984,17 @@ aside::-webkit-scrollbar-thumb {
   height: 42px;
   object-fit: contain;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .4));
-  background: rgba(255, 255, 255, .06);
+  background: rgba(255, 255, 255, .88);
   border-radius: 10px;
   padding: 6px;
-  border: 1px solid rgba(139, 111, 71, .15);
-  transition: border-color .2s, background .2s;
+  border: 1px solid rgba(139, 111, 71, .2);
+  transition: border-color .2s, background .2s, transform .2s;
 }
 
 .skill-icon-item:hover .skill-icon-img {
-  background: rgba(139, 111, 71, .12);
-  border-color: rgba(139, 111, 71, .4);
+  background: #fff;
+  border-color: rgba(139, 111, 71, .5);
+  transform: scale(1.08);
 }
 
 .skill-icon-emoji {
@@ -1003,15 +1004,16 @@ aside::-webkit-scrollbar-thumb {
   align-items: center;
   justify-content: center;
   font-size: 1.6rem;
-  background: rgba(255, 255, 255, .06);
+  background: rgba(255, 255, 255, .1);
   border-radius: 10px;
-  border: 1px solid rgba(139, 111, 71, .15);
-  transition: border-color .2s, background .2s;
+  border: 1px solid rgba(139, 111, 71, .2);
+  transition: border-color .2s, background .2s, transform .2s;
 }
 
 .skill-icon-item:hover .skill-icon-emoji {
-  background: rgba(139, 111, 71, .12);
-  border-color: rgba(139, 111, 71, .4);
+  background: rgba(139, 111, 71, .18);
+  border-color: rgba(139, 111, 71, .5);
+  transform: scale(1.08);
 }
 
 .skill-icon-label {
@@ -2099,5 +2101,83 @@ aside::-webkit-scrollbar-thumb {
 @media (max-width: 600px) {
   .proj-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ─── THEME TOGGLE & LIGHT THEME ─── */
+[data-theme="light"] {
+  --black: #f8f6f0;
+  --text: #1a1510;
+  --muted: #5c4530;
+  --brown-card-2: #e8dcc8;
+  --brown-light: #9e7e55;
+  --brown: #b8956a;
+}
+
+[data-theme="light"] body {
+  background: var(--black);
+}
+
+[data-theme="light"] .staggered-menu-panel {
+  background: #f8f6f0;
+}
+
+[data-theme="light"] .home-about-section {
+  background: linear-gradient(180deg, var(--black) 0%, #f4efe6 60%, #eee8dd 100%);
+}
+
+[data-theme="light"] .shell {
+  background: var(--black);
+}
+
+[data-theme="light"] aside {
+  background: #fdfbf7;
+  border-right: 1px solid rgba(139, 111, 71, .25);
+}
+
+[data-theme="light"] .side-logo,
+[data-theme="light"] .home-logo,
+[data-theme="light"] .loader-logo,
+[data-theme="light"] .portfolio-menu .sm-logo-img {
+  filter: none;
+}
+
+.theme-toggle-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--brown-card-2);
+  color: var(--text);
+  border: 1px solid rgba(139, 111, 71, .45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+[data-theme="light"] .theme-toggle-btn {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  background: var(--brown);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-btn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
   }
 }
