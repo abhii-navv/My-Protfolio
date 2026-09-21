@@ -317,23 +317,6 @@ function ResumePage({ onOpenResume }) {
               <a href="https://ieeexplore.ieee.org/document/11590685" title="Link coming soon">View Paper →</a>
             </div>
           </div>
-          <div className="r-block">
-            <h3>Skill Proficiency</h3>
-            <div className="skill-bars">
-              {[
-                { label: 'Backend Development', level: 'Advanced', pct: 80 },
-                { label: 'Full Stack (MERN)', level: 'Intermediate', pct: 65 },
-                { label: 'Computer Vision / OpenCV', level: 'Intermediate', pct: 62 },
-                { label: 'Real-Time Systems / ROS2', level: 'Intermediate', pct: 58 },
-                { label: 'Photography & Editing', level: 'Proficient', pct: 78 },
-              ].map(s => (
-                <div key={s.label} className="sbar-row">
-                  <div className="sbar-top"><span>{s.label}</span><span>{s.level}</span></div>
-                  <div className="sbar-track"><div className="sbar-fill" style={{ width: `${s.pct}%` }} /></div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </div>
