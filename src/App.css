@@ -9,7 +9,43 @@
   margin: 0;
   padding: 0;
 }
+.skills-flat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 16px;
+}
 
+.skill-flat-item {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.skill-flat-item:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.skill-flat-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.skill-flat-emoji {
+  font-size: 32px;
+  line-height: 1;
+}
 :root {
   --black: #0c0b09;
   --brown: #8B6F47;
