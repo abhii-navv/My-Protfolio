@@ -750,5 +750,16 @@ export default function App() {
           </div>
         </div>
       )}
-
+  {/* THEME TOGGLE BUTTON */}
+      <button 
+        className="theme-toggle-btn" 
+        onClick={toggleTheme} 
+        aria-label="Toggle theme"
+        title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+      >
+        {theme === 'light' ? '🌙' : '☀️'}
+      </button>
+    </>
+  );
+}
     
