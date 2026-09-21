@@ -377,7 +377,7 @@ const PROJECTS = {
       date: 'May 2026',
     },
     {
-      title: 'Order Management API', cats: ['backend', 'webdev'],
+      title: 'Order Management', cats: ['backend', 'webdev'],
       desc: 'A full-stack Inventory and Order Management system built with Node.js, Express, PostgreSQL, and React.',
       tags: ['Node.js', 'Express', 'PostgreSQL', 'JWT', 'React', 'PDFkit'],
       links: [{ label: 'GitHub', href: 'https://github.com/abhii-navv/Order-Management-API' }, { label: 'Live Demo', href: 'https://order-management-api-wsir.vercel.app/' }],
